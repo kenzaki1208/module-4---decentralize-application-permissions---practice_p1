@@ -1,0 +1,48 @@
+plugins {
+  id 'java'
+  id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+  mavenCentral()
+}
+
+ext {
+  junitVersion = '5.10.2'
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+tasks.withType(JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
+dependencies {
+  // Jakarta EE for Tomcat 10+
+  implementation('jakarta.servlet:jakarta.servlet-api:6.0.0')
+
+  // Spring Framework 6.x
+  implementation 'org.springframework:spring-webmvc:6.1.10'
+  implementation 'org.springframework:spring-context:6.1.10'
+
+  // Thymeleaf for Spring 6
+  implementation 'org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE'
+  implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0'
+  implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.2.RELEASE'
+
+  // Spring Security 6.x
+  implementation 'org.springframework.security:spring-security-web:6.3.1'
+  implementation 'org.springframework.security:spring-security-config:6.3.1'
+  implementation 'org.springframework.security:spring-security-taglibs:6.3.1'
+
+  // Logging
+  implementation 'org.slf4j:slf4j-api:2.0.13'
+  implementation 'ch.qos.logback:logback-classic:1.5.6'
+}
+
+test {
+useJUnitPlatform()}

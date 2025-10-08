@@ -1,0 +1,6 @@
+package org.example.demo_decentralize_application_permissions.practice.p1.security;
+
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
+public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
+}
